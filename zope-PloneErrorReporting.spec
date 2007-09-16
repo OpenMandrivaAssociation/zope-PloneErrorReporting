@@ -1,28 +1,28 @@
-%define product		PloneErrorReporting
-%define version		1.0
-%define release	        1
+%define Product PloneErrorReporting
+%define product ploneerrorreporting
+%define name    zope-%{Product}
+%define version 1.1
+%define release %mkrel 1
 
 %define zope_minver	2.7
 %define plone_minver	2.0
-
 %define zope_home	%{_prefix}/lib/zope
 %define software_home	%{zope_home}/lib/python
 
-Summary:	PloneErrorReporting facilitate the submission of useful bug reports to Plone
-Name:		zope-%{product}
+Name:		%{name}
 Version:	%{version}
-Release:	%mkrel %{release}
+Release:	%{release}
+Summary:	PloneErrorReporting facilitate the submission of useful bug reports to Plone
 License:	GPL
 Group:		System/Servers
-Source:		http://plone.org/products/ploneerrorreporting/releases/%{version}/PloneErrorReporting-%{version}.tar.bz2
-URL:		http://plone.org/products/ploneerrorreporting
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
-BuildArch:	noarch
+URL:        http://plone.org/products/%{product}
+Source:     http://plone.org/products/%{product}/releases/%{version}/%{Product}-%{version}.tar.gz
 Requires:	zope >= %{zope_minver}
 Requires:	zope >= %{plone_minver}
-
 Provides:	plone-PloneErrorReporting == %{version}
 Obsoletes:	plone-PloneErrorReporting
+BuildArch:  noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
 PloneErrorReporting replaces default_error_message and 
@@ -58,9 +58,5 @@ if [ -f "%{_prefix}/bin/zopectl" ] && [ "`%{_prefix}/bin/zopectl status`" != "da
 fi
 
 %files
-%defattr(0644, root, root, 0755)
+%defattr(-,root,root)
 %{software_home}/Products/*
-
-
-
-
