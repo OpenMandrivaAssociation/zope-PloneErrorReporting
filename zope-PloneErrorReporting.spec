@@ -22,6 +22,7 @@ Requires:	zope >= %{plone_minver}
 Provides:	plone-PloneErrorReporting == %{version}
 Obsoletes:	plone-PloneErrorReporting
 BuildArch:  noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
 PloneErrorReporting replaces default_error_message and 
